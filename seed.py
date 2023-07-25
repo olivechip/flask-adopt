@@ -9,5 +9,5 @@ p2 = Pet(name='teddy', species='dog', age=6, notes='mini poodle', available=Fals
 p3 = Pet(name='bear', species='cat', age=6, notes='persian', available=False)
 p4 = Pet(name='coco', species='cat', age=6, notes='persian', available=False)
 
-db.session.add([p1, p2, p3, p4])
+db.session.add_all([p1, p2, p3, p4])
 db.session.commit()
