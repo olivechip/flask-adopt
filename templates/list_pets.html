@@ -10,10 +10,13 @@ Adoption Agency - Pet List
     {% for p in pets %}
         <li>
             <img src="{{p.photo_url}}" alt="">
-            {{p.name}}
-            {% if {{p.available}} == True %}
-                Available
-            {% endif %}
+            <p>{{p.name}} - 
+                    {% if {{p.available}} == True %}
+                Available 
+                    {% else %}
+                Unavailable 
+                    {% endif %}
+            </p>
         </li>
     {% endfor %}
 </ul> -->
