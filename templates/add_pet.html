@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Adoption Agency - Add Pet
+{% endblock %}
+
+{% block content %}
+
+<h1>Add Pet</h1>
+<form method="POST">
+    {{ form.hidden_tag() }}
+
+    {% for field in form %}
+        {% if field.widget.input_type != 'hidden' %}
+            <div>
+                {{ field.label }}
+                {{ field }}
+            </div>
+        {% endif %}
+    {% endfor %}
+
+    <button class="btn btn-success">Submit</button>
+    <a class="btn btn-primary" href="/pets" role="button">Cancel</a>
+</form>
+
+{% endblock %}

@@ -5,20 +5,33 @@ Adoption Agency - Pet List
 {% endblock %}
 
 {% block content %}
+
+{% for msg in get_flashed_messages() %}
+    <div class="alert alert-success" role="alert">
+        {{ msg }}
+    </div>
+{% endfor %}
+
 <h1>Pets</h1>
-<!-- <ul>
+<div>   
     {% for p in pets %}
-        <li>
-            <img src="{{p.photo_url}}" alt="">
-            <p>{{p.name}} - 
-                    {% if {{p.available}} == True %}
-                Available 
-                    {% else %}
-                Unavailable 
-                    {% endif %}
-            </p>
-        </li>
+    <div class="card text-center" style="max-width: 15rem;">
+        <img class="card-img-top" src="{{ p.img_url }}" alt="pet_img">
+        <div class="card-body">
+            <h5 class="card-title">
+                {{p.name}}
+            </h5>
+            {% if p.available %}
+            <p class="badge badge-pill badge-primary">Available</p>  
+            {% else %}
+            <p class="badge badge-pill badge-secondary">Unavailable</p>
+            {% endif %}
+            <p class="card-text"></p>
+        </div>
+    </div>
     {% endfor %}
-</ul> -->
+</div>
+
+<a class="btn btn-primary" href="/add" role="button">Add Pet</a>
 
 {% endblock %}
