@@ -1,12 +1,21 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Adoption Agency - Add Pet
+Adoption Agency - Pet Details
 {% endblock %}
 
 {% block content %}
 
-<h1>Add Pet</h1>
+<h1>{{ pet.name }}</h1>
+
+{% if pet.photo_url %}
+<img class="img-fluid" style="max-width:30rem;" src="{{ pet.img_url }}">
+{% endif %}
+
+<p>Species: {{ pet.species }}</p>
+<p>Age: {{ pet.age }}</p>
+<hr>
+<h2>Edit</h2>
 
 <form method="POST">
     {{ form.hidden_tag() }}
@@ -15,7 +24,7 @@ Adoption Agency - Add Pet
         {% if field.widget.input_type != 'hidden' %}
             <div class="form-group">
                 {{ field.label }}
-                {{ field(class="form-control") }}
+                {{ field(class="form-control")}}
 
                 {% for error in field.errors %} 
                     <div class="alert alert-danger" role="alert">{{ error }}</div>
@@ -26,7 +35,6 @@ Adoption Agency - Add Pet
     {% endfor %}
 
     <button class="btn btn-success">Submit</button>
-    <a class="btn btn-primary" href="/pets" role="button">Cancel</a>
 </form>
 
 {% endblock %}
